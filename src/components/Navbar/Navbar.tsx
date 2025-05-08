@@ -27,12 +27,12 @@ function Nav({ className }: { className?: string }) {
         <div className="absolute left-8 z-50 flex items-center justify-center ">
           <Image
             src={"/Austrange Logo.png"}
-            className="dark:invert"
+            className="dark:invert md:w-[50px] md:h-[50px] w-[30px] h-[30px]"
             alt="Austrange Logo"
             width={"50"}
             height={"50"}
           />
-          <Link href="/" className="text-3xl  font-bold px-2">
+          <Link href="/" className="md:text-3xl text-xl  font-bold px-2">
             Austrange
           </Link>
         </div>
