@@ -19,7 +19,7 @@ export function Hero() {
   }, [resolvedTheme]);
   return (
     <div className="heroSection">
-      <div className="z-10 flex flex-col min-h-screen items-center py-32">
+      <div className="z-10 flex flex-col min-h-screen items-center md:py-32 py-48">
         <div className="group relative mx-auto flex items-center justify-center rounded-full px-4 py-1.5 my-6 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] ">
           <span
             className={cn(
