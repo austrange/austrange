@@ -4,6 +4,7 @@ import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "../ui/mode-toggle";
 import Image from "next/image";
+import Link from "next/link";
 
 function Navbar() {
   return (
@@ -23,7 +24,18 @@ function Nav({ className }: { className?: string }) {
       )}
     >
       <Menu setActive={setActive}>
-        <Image src={"/Austrange Logo.png"} className="absolute left-8 z-50 flex items-center justify-center dark:invert" alt="Austrange Logo" width={"50"} height={"50"} />
+        <div className="absolute left-8 z-50 flex items-center justify-center ">
+          <Image
+            src={"/Austrange Logo.png"}
+            className="dark:invert"
+            alt="Austrange Logo"
+            width={"50"}
+            height={"50"}
+          />
+          <Link href="/" className="text-3xl  font-bold px-2">
+            Austrange
+          </Link>
+        </div>
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
