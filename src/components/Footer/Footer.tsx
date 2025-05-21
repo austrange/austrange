@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Twitter, Linkedin, Instagram, Github, Mail, MapPin, Phone } from "lucide-react";
+import { Twitter, Linkedin, Instagram, Github, Mail, Phone } from "lucide-react";
 
 // Define navigation sections
 const footerNavs = [
