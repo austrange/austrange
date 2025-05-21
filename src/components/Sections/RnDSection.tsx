@@ -2,7 +2,7 @@
 import { AnimatedGradientText } from "../magicui/animated-gradient-text";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { GlowingStarsBackgroundCard } from "../ui/glowing-stars";
+import Image from "next/image";
 
 const innovations = [
   {
@@ -52,16 +52,32 @@ export function RnDSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ 
+                y: -5,
+                transition: { duration: 0.2 }
+              }}
             >
-              <GlowingStarsBackgroundCard>
-                <div className="p-6">
-                  <div className="mb-4 text-4xl">{item.icon}</div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-neutral-500 dark:text-neutral-400">
+              <div className="relative overflow-hidden rounded-xl backdrop-blur-sm border border-neutral-200/50 dark:border-neutral-800/50 bg-white/70 dark:bg-neutral-800/70 shadow-lg h-full">
+                {/* Gradient corner accent */}
+                <div className="absolute -top-10 -right-10 w-20 h-20 rounded-full bg-gradient-to-r opacity-70"
+                  style={{ 
+                    backgroundImage: `linear-gradient(to right, ${item.gradient.includes('blue') ? '#3B82F6' : item.gradient.includes('purple') ? '#9333EA' : '#D97706'}, ${item.gradient.includes('cyan') ? '#06B6D4' : item.gradient.includes('pink') ? '#EC4899' : '#FBBF24'})` 
+                  }} 
+                />
+                
+                <div className="relative z-10 p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="text-4xl bg-neutral-100 dark:bg-neutral-700 rounded-lg w-12 h-12 flex items-center justify-center mr-4">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-xl font-bold">{item.title}</h3>
+                  </div>
+                  
+                  <p className="text-neutral-500 dark:text-neutral-400 mb-6">
                     {item.description}
                   </p>
                   
-                  <div className="mt-6">
+                  <div className="mt-auto">
                     <div className={cn(
                       "h-1.5 w-full rounded-full overflow-hidden bg-neutral-200 dark:bg-neutral-700",
                     )}>
@@ -81,7 +97,7 @@ export function RnDSection() {
                     </p>
                   </div>
                 </div>
-              </GlowingStarsBackgroundCard>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -91,8 +107,12 @@ export function RnDSection() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="bg-white dark:bg-neutral-800 rounded-xl p-8 md:p-12 shadow-lg"
+          className="relative bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm rounded-xl p-8 md:p-12 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
         >
+          {/* Decorative elements */}
+          <div className="absolute -top-6 -left-6 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 opacity-60 blur-md"></div>
+          <div className="absolute -bottom-6 -right-6 w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 opacity-60 blur-md"></div>
+          
           <div className="grid md:grid-cols-2 gap-10">
             <div>
               <h3 className="text-2xl font-bold mb-4">Our Innovation Approach</h3>
@@ -127,6 +147,13 @@ export function RnDSection() {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 via-blue-500/30 to-teal-500/30 rounded-xl flex items-center justify-center">
                 {/* Placeholder for innovation process image or diagram */}
                 <span className="text-2xl">Innovation Process</span>
+                <Image
+                  src="/assets/images/innovation.jpg"
+                  alt="Innovation Process"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-xl max-w-full max-h-fit"
+                />
               </div>
             </div>
           </div>

@@ -1,88 +1,140 @@
 "use client";
-import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
+import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "../ui/mode-toggle";
 import Image from "next/image";
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
+
+const navItems = [
+  { name: "About", href: "#about" },
+  { name: "E-SIGHT", href: "#product" },
+  { name: "Impact", href: "#impact" },
+  { name: "Team", href: "#team" },
+  { name: "R&D", href: "#rnd" },
+  { name: "Collaborate", href: "#collaborate" },
+  { name: "Contact", href: "#contact" },
+];
 
 function Navbar() {
-  return (
-    <div className="relative w-full flex items-center justify-center">
-      <Nav className="" />
-    </div>
-  );
-}
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-function Nav({ className }: { className?: string }) {
-  const [active, setActive] = useState<string | null>(null);
+  // Handle scroll event to apply glassmorphism
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrolled]);
+
+  // Handle smooth scrolling
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      // Update URL without page reload
+      window.history.pushState({}, "", href);
+    }
+  };
+
   return (
-    <div
+    <header
       className={cn(
-        "fixed top-0 inset-x-0 max-w-full mx-auto z-50 ",
-        className
+        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
+        scrolled
+          ? "bg-white/70 dark:bg-neutral-900/80 backdrop-blur-lg shadow-md py-3"
+          : "bg-transparent py-5"
       )}
     >
-      <Menu setActive={setActive}>
-        <div className="absolute left-8 z-50 flex items-center justify-center ">
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+        {/* Logo and Brand */}
+        <div className="flex items-center gap-2">
           <Image
-            src={"/Austrange Logo.png"}
-            className="dark:invert md:w-[50px] md:h-[50px] w-[30px] h-[30px]"
+            src="/Austrange Logo.png"
+            className="dark:invert w-8 h-8 md:w-10 md:h-10"
             alt="Austrange Logo"
-            width={"50"}
-            height={"50"}
+            width={40}
+            height={40}
           />
-          <Link href="/" className="md:text-3xl text-xl  font-bold px-2">
+          <Link
+            href="/"
+            className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500"
+          >
             Austrange
           </Link>
         </div>
-        <MenuItem setActive={setActive} active={active} item="Services">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">Web Development</HoveredLink>
-            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center">
+          <div className="flex items-center gap-1">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="px-3 py-2 text-sm font-medium text-neutral-700 hover:text-purple-600 dark:text-neutral-200 dark:hover:text-purple-400 rounded-full transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
           </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Products">
-          <div className="  text-sm grid grid-cols-2 gap-10 p-4">
-            <ProductItem
-              title="Algochurn"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
-              description="Prepare for tech interviews like never before."
-            />
-            <ProductItem
-              title="Tailwind Master Kit"
-              href="https://tailwindmasterkit.com"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-              description="Production ready Tailwind css components for your next project"
-            />
-            <ProductItem
-              title="Moonbeam"
-              href="https://gomoonbeam.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-              description="Never write from scratch again. Go from idea to blog in minutes."
-            />
-            <ProductItem
-              title="Rogue"
-              href="https://userogue.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-            />
+          <div className="border-l border-neutral-200 dark:border-neutral-700 pl-4">
+            <ModeToggle />
           </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Pricing">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-        </MenuItem>
-        <ModeToggle />
-      </Menu>
-    </div>
+        </nav>
+
+        {/* Mobile Navigation Toggle */}
+        <div className="flex items-center md:hidden gap-2">
+          <ModeToggle />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-full"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation Menu - Fixed */}
+      <div
+        className={cn(
+          "md:hidden bg-white/90 dark:bg-neutral-900/95 backdrop-blur-md border-t dark:border-neutral-800 transition-all duration-300 ease-in-out overflow-hidden",
+          mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        )}
+      >
+        <div className="container mx-auto px-4 py-2">
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
+              className="block py-3 text-neutral-700 hover:text-purple-600 dark:text-neutral-200 dark:hover:text-purple-400 border-b border-neutral-100 dark:border-neutral-800"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </header>
   );
 }
 
