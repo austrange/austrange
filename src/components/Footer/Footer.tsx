@@ -8,8 +8,7 @@ import {
   Mail,
   Phone,
   Facebook,
-  Youtube,
-  X,
+  Youtube
 } from "lucide-react";
 
 // Define navigation sections
