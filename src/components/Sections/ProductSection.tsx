@@ -1,5 +1,4 @@
 "use client";
-import { SparklesCore } from "../ui/sparkles";
 import { AnimatedGradientText } from "../magicui/animated-gradient-text";
 import { motion } from "framer-motion";
 import { ShimmerButton } from "../magicui/shimmer-button";
@@ -128,18 +127,6 @@ const userBenefits = [
 export function ProductSection() {
   return (
     <section id="product" className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <SparklesCore
-          id="tsparticlesfullpage"
-          background="transparent"
-          minSize={0.6}
-          maxSize={1.4}
-          particleDensity={15}
-          className="w-full h-full"
-          particleColor="#8C7CF0"
-        />
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

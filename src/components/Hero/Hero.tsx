@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import { InteractiveHoverButton } from "../magicui/interactive-hover-button";
 import { AuroraText } from "../magicui/aurora-text";
-import { Particles } from "../magicui/particles";
 import { ShimmerButton } from "../magicui/shimmer-button";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -73,12 +72,6 @@ export function Hero() {
             </Link>
           </div>
         </div>
-        <Particles
-          className="absolute inset-0 z-0"
-          quantity={100}
-          ease={80}
-          color={color}
-        />
       </div>
     </div>
   );
