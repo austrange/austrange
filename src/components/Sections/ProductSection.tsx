@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ShimmerButton } from "../magicui/shimmer-button";
 import { HeroVideoDialogComponent } from "../Hero/HeroVideoDialog";
 import Image from "next/image";
+import Link from "next/link";
 
 const features = [
   {
@@ -207,11 +208,13 @@ export function ProductSection() {
             </div>
 
             <div className="mt-10">
-              <ShimmerButton className="w-full md:w-auto">
-                <span className="text-sm font-medium dark:text-white">
-                  Learn More About E-SIGHT
-                </span>
-              </ShimmerButton>
+              <Link href="https://www.e-sight.tech" target="_blank">
+                <ShimmerButton className="w-full md:w-auto">
+                  <span className="text-sm font-medium dark:text-white">
+                    Learn More About E-SIGHT
+                  </span>
+                </ShimmerButton>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -261,11 +264,13 @@ export function ProductSection() {
           </div>
 
           <div className="mt-12 flex justify-center">
-            <ShimmerButton>
-              <span className="text-sm font-medium dark:text-white">
-                See More Benefits
-              </span>
-            </ShimmerButton>
+            <Link href="https://www.e-sight.tech" target="_blank">
+              <ShimmerButton>
+                <span className="text-sm font-medium dark:text-white">
+                  See More Benefits
+                </span>
+              </ShimmerButton>
+            </Link>
           </div>
         </motion.div>
         <div className="mt-20  mx-auto">

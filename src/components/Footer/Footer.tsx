@@ -1,7 +1,16 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, Linkedin, Instagram, Github, Mail, Phone } from "lucide-react";
+import {
+  Linkedin,
+  Instagram,
+  Github,
+  Mail,
+  Phone,
+  Facebook,
+  Youtube,
+  X,
+} from "lucide-react";
 
 // Define navigation sections
 const footerNavs = [
@@ -32,26 +41,44 @@ const footerNavs = [
 ];
 
 const socialLinks = [
-  { icon: <Twitter size={18} />, href: "https://twitter.com/" },
-  { icon: <Linkedin size={18} />, href: "https://linkedin.com/" },
-  { icon: <Instagram size={18} />, href: "https://instagram.com/" },
-  { icon: <Github size={18} />, href: "https://github.com/" },
+  {
+    icon: <Facebook size={18} />,
+    href: "https://www.facebook.com/profile.php?id=61575298985988",
+  },
+  {
+    icon: <Linkedin size={18} />,
+    href: "https://www.linkedin.com/company/austrange-solutions/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BcNLTR0SpTxikXEDgrLox3w%3D%3D",
+  },
+  {
+    icon: <Instagram size={18} />,
+    href: "https://www.instagram.com/austrangesolutions?igsh=emg1cHViY2xwY203",
+  },
+  { icon: <Github size={18} />, href: "https://github.com/austrange" },
+  { icon: <Youtube size={18} />, href: "https://youtube.com/@austrange" },
+  {
+    // eslint-disable-next-line @next/next/no-img-element
+    icon: <img src="/x.svg" alt="X" width={18} />,
+    href: "https://x.com/austrangesolns",
+  },
 ];
 
 // Handle smooth scrolling for navigation links
-const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+const handleNavClick = (
+  e: React.MouseEvent<HTMLAnchorElement>,
+  href: string
+) => {
   if (href.startsWith("#")) {
     e.preventDefault();
-    
+
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
-    
+
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
-      
+
       // Update URL without page reload
       window.history.pushState({}, "", href);
     }
@@ -65,7 +92,7 @@ export default function Footer() {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-30"></div>
       <div className="absolute -top-20 -left-20 w-40 h-40 bg-purple-300 dark:bg-purple-900 rounded-full filter blur-3xl opacity-10"></div>
       <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-blue-300 dark:bg-blue-900 rounded-full filter blur-3xl opacity-10"></div>
-      
+
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-6 py-10">
           {/* Company info and logo - made more compact */}
@@ -78,8 +105,8 @@ export default function Footer() {
                 width={32}
                 height={32}
               />
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500"
               >
                 Austrange
@@ -88,23 +115,32 @@ export default function Footer() {
             <p className="text-neutral-600 dark:text-neutral-400 mb-4 text-sm">
               Empowering lives through intelligent solutions.
             </p>
-            
+
             {/* Contact Info - simplified */}
             <div className="space-y-2 mb-4 text-xs">
               <div className="flex items-center">
-                <Mail size={14} className="text-neutral-500 mr-2 flex-shrink-0" />
+                <Mail
+                  size={14}
+                  className="text-neutral-500 mr-2 flex-shrink-0"
+                />
                 <span className="text-neutral-600 dark:text-neutral-400">
-                  contact@austrangesolutions.com
+                  <a href="mailto:austrange.india@gmail.com">
+                    austrange.india@gmail.com
+                  </a>
                 </span>
               </div>
               <div className="flex items-center">
-                <Phone size={14} className="text-neutral-500 mr-2 flex-shrink-0" />
+                <Phone
+                  size={14}
+                  className="text-neutral-500 mr-2 flex-shrink-0"
+                />
                 <span className="text-neutral-600 dark:text-neutral-400">
-                  +91 9322871984
+                  <a href="tel:+919322871984">+91 93228 71984</a> /{" "}
+                  <a href="tel:+918433887840">+91 84338 87840</a>
                 </span>
               </div>
             </div>
-            
+
             {/* Social Media - smaller */}
             <div className="flex items-center gap-2">
               {socialLinks.map((item, idx) => (
@@ -122,7 +158,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          
+
           {/* Navigation links - more compact */}
           <div className="col-span-2 md:col-span-8 grid grid-cols-3 gap-4">
             {footerNavs.map((item, idx) => (
@@ -133,7 +169,7 @@ export default function Footer() {
                 <ul className="space-y-1">
                   {item.items.map((link, linkIdx) => (
                     <li key={linkIdx}>
-                      <a 
+                      <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
                         className="text-neutral-500 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 text-xs transition-colors"
@@ -147,21 +183,22 @@ export default function Footer() {
             ))}
           </div>
         </div>
-        
+
         {/* Bottom bar with copyright - simplified */}
         <div className="border-t border-neutral-200 dark:border-neutral-800 py-4 flex flex-col md:flex-row justify-between items-center text-xs">
           <p className="text-neutral-500 dark:text-neutral-400 mb-2 md:mb-0">
-            © {new Date().getFullYear()} Austrange Solutions Pvt. Ltd. All rights reserved.
+            © {new Date().getFullYear()} Austrange Solutions Pvt. Ltd. All
+            rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a 
-              href="/privacy" 
+            <a
+              href="/privacy"
               className="text-neutral-500 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400"
             >
               Privacy
             </a>
-            <a 
-              href="/terms" 
+            <a
+              href="/terms"
               className="text-neutral-500 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400"
             >
               Terms

@@ -7,6 +7,7 @@ import { RnDSection } from "@/components/Sections/RnDSection";
 import { CollaborateSection } from "@/components/Sections/CollaborateSection";
 import { NewsSection } from "@/components/Sections/NewsSection";
 import { ContactSection } from "@/components/Sections/ContactSection";
+import { ScrollToTopButton } from "@/components/ui/scroll-to-top";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <CollaborateSection />
       <NewsSection />
       <ContactSection />
+      <ScrollToTopButton />
     </main>
   );
 }

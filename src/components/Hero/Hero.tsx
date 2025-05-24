@@ -50,7 +50,7 @@ export function Hero() {
             Empowering <AuroraText>Lives</AuroraText> <br /> Through{" "}
             <LineShadowText className="italic" shadowColor={color}>
               Intelligent
-            </LineShadowText>
+            </LineShadowText>{" "}
             Solutions
           </h1>
 
@@ -78,7 +78,6 @@ export function Hero() {
           quantity={100}
           ease={80}
           color={color}
-          refresh
         />
       </div>
     </div>

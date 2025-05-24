@@ -7,27 +7,27 @@ import { motion } from "framer-motion";
 const teamMembers = [
   {
     name: "Abdus Samad Qureshi",
-    role: "Co-Founder, Visionary Leader, Project Lead",
+    role: "Co-Founder, Chief Executive Officer",
     image: "/assets/images/ceo.jpg", 
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/abdus-samad-qureshi-836174250/",
   },
   {
     name: "Vishnuraj Vishwakarma",
-    role: "Co-Founder, Research & Outreach Head",
+    role: "Co-Founder, Chief Operating Officer",
     image: "/assets/images/coo.jpg", 
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/vishnuraj-vishwakarma-radhakrishnan/",
   },
   {
     name: "Sahil Mane",
-    role: "Co-Founder, Technical Officer, Engineering Lead",
+    role: "Co-Founder, Chief Technology Officer",
     image: "/assets/images/cto.jpg", 
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/sahil-mane-003a0924b/",
   },
   {
     name: "Harsh Gupta",
-    role: "Co-Founder, Chief Information Officer, Product Lead",
+    role: "Co-Founder, Chief Information Officer",
     image: "/assets/images/cio.jpg", 
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/harsh-gupta-2b41692b1/",
   },
 ];
 

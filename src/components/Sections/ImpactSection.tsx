@@ -44,7 +44,7 @@ export function ImpactSection() {
                 <span className="ml-2 text-neutral-500 dark:text-neutral-400">individuals</span>
               </div>
               <p className="mt-4 text-neutral-500 dark:text-neutral-400">
-                Supporting over 100 visually impaired individuals during early trials
+                Supporting over 100 disabled individuals during early trials
               </p>
             </div>
           </motion.div>
@@ -131,7 +131,7 @@ export function ImpactSection() {
                   </div>
                 </div>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  Enhancing quality of life for visually impaired individuals
+                  Enhancing quality of life for disabled individuals
                 </p>
               </motion.div>
 
