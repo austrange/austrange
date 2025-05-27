@@ -7,25 +7,25 @@ import { motion } from "framer-motion";
 const teamMembers = [
   {
     name: "Abdus Samad Qureshi",
-    role: "Co-Founder, Chief Executive Officer",
+    role: "CEO",
     image: "/assets/images/ceo.jpg", 
     linkedin: "https://www.linkedin.com/in/abdus-samad-qureshi-836174250/",
   },
   {
     name: "Vishnuraj Vishwakarma",
-    role: "Co-Founder, Chief Operating Officer",
+    role: "COO",
     image: "/assets/images/coo.jpg", 
     linkedin: "https://www.linkedin.com/in/vishnuraj-vishwakarma-radhakrishnan/",
   },
   {
     name: "Sahil Mane",
-    role: "Co-Founder, Chief Technology Officer",
+    role: "CTO",
     image: "/assets/images/cto.jpg", 
     linkedin: "https://www.linkedin.com/in/sahil-mane-003a0924b/",
   },
   {
     name: "Harsh Gupta",
-    role: "Co-Founder, Chief Information Officer",
+    role: "CIO",
     image: "/assets/images/cio.jpg", 
     linkedin: "https://www.linkedin.com/in/harsh-gupta-2b41692b1/",
   },
