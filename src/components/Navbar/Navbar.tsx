@@ -13,6 +13,7 @@ const navItems = [
   { name: "Team", href: "#team" },
   { name: "R&D", href: "#rnd" },
   { name: "Collaborate", href: "#collaborate" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -38,6 +39,9 @@ function Navbar() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
+    // Skip smooth scroll for non-hash links
+    if (!href.startsWith("#")) return;
+
     e.preventDefault();
     setMobileMenuOpen(false);
 
