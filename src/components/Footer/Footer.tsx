@@ -4,11 +4,10 @@ import Image from "next/image";
 import {
   Linkedin,
   Instagram,
-  Github,
   Mail,
   Phone,
   Facebook,
-  Youtube
+  Youtube,
 } from "lucide-react";
 
 // Define navigation sections
@@ -52,7 +51,6 @@ const socialLinks = [
     icon: <Instagram size={18} />,
     href: "https://www.instagram.com/austrangesolutions?igsh=emg1cHViY2xwY203",
   },
-  { icon: <Github size={18} />, href: "https://github.com/austrange" },
   { icon: <Youtube size={18} />, href: "https://youtube.com/@austrange" },
   {
     // eslint-disable-next-line @next/next/no-img-element
