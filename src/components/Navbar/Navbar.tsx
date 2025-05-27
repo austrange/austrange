@@ -7,14 +7,14 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { name: "About", href: "#about" },
-  { name: "E-SIGHT", href: "#product" },
-  { name: "Impact", href: "#impact" },
-  { name: "Team", href: "#team" },
-  { name: "R&D", href: "#rnd" },
-  { name: "Collaborate", href: "#collaborate" },
+  { name: "About", href: "/#about" },
+  { name: "E-SIGHT", href: "/#product" },
+  { name: "Impact", href: "/#impact" },
+  { name: "Team", href: "/#team" },
+  { name: "R&D", href: "/#rnd" },
+  { name: "Collaborate", href: "/#collaborate" },
   { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 function Navbar() {
@@ -90,14 +90,14 @@ function Navbar() {
         <nav className="hidden md:flex items-center">
           <div className="flex items-center gap-1">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
                 className="px-3 py-2 text-sm font-medium text-neutral-700 hover:text-purple-600 dark:text-neutral-200 dark:hover:text-purple-400 rounded-full transition-colors"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="border-l border-neutral-200 dark:border-neutral-700 pl-4">
