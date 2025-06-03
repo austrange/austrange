@@ -102,8 +102,8 @@ export function ContactSection() {
               <div>
                 <h4 className="text-lg font-medium mb-2">Email</h4>
                 <p className="text-neutral-500 dark:text-neutral-400">
-                  <a href="mailto:austrange.india@gmail.com">
-                    austrange.india@gmail.com
+                  <a href="mailto:contact.austrange@gmail.com">
+                    contact.austrange@gmail.com
                   </a>
                 </p>
               </div>

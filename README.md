@@ -128,7 +128,7 @@ If you'd like to contribute to this project, please follow these steps:
 
 ## Contact
 
-- Email: [austrange.india@gmail.com](mailto:austrange.india@gmail.com)
+- Email: [contact.austrange@gmail.com](mailto:contact.austrange@gmail.com)
 - Phone: +91 9322871984 / +91 8433887840
 - Website: [www.austrange.com](https://www.austrange.com)
 - Social Media:

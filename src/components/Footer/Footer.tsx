@@ -121,8 +121,8 @@ export default function Footer() {
                   className="text-neutral-500 mr-2 flex-shrink-0"
                 />
                 <span className="text-neutral-600 dark:text-neutral-400">
-                  <a href="mailto:austrange.india@gmail.com">
-                    austrange.india@gmail.com
+                  <a href="mailto:contact.austrange@gmail.com">
+                    contact.austrange@gmail.com
                   </a>
                 </span>
               </div>
